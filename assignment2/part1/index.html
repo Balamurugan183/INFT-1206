@@ -125,7 +125,8 @@
         <!-- insert images with srcsets and sizes -->
         <a href="https://www.mozilla.org/en-US/firefox/new/">
           <img 
-            srcset="firefox_logo-only_RGB(120).png 120w,firefox_logo-only_RGB(400).png 400w"
+            srcset="firefox_logo-only_RGB(120).png 120w,
+            firefox_logo-only_RGB(400).png 400w"
             sizes="(max-width : 500px) 120px, 400px"
             src="firefox_logo-only_RGB(400).png" 
             alt="firefox logo">
@@ -133,10 +134,10 @@
         <a href="https://www.mozilla.org/">
           <img 
             srcset="mozilla-dinosaur-head(120).png 120w,
-            mozilla-dinosaur-head (400).png 400w" 
-            sizes="(max-width : 500px) 120px, 400px"  
-            src="mozilla-dinosaur-head(400).png" 
-            alt="dinosaur head logo">
+            mozilla-dinosaur-head.png 400w" 
+            sizes="(max-width : 500px) 120px,400px"  
+            src="mozilla-dinosaur-head.png" 
+            alt="dinosaur  logo">
         </a>
         <a href="https://addons.mozilla.org/">
           <img 
@@ -153,6 +154,14 @@
 
       <div class="red-panda">
         <!-- insert picture element -->
+        <picture>
+          <source 
+            media="(max-width : 600px)" 
+            srcset="red-panda (600).jpg">
+          <img 
+            src="red-panda(1200).jpg" 
+            alt="red panda">
+        </picture>
       </div>
 
     </main>
