@@ -46,10 +46,17 @@ body {
     list-style: none;
     margin: 0;
     padding: 0;
-  }
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px,1fr));
+    grid-template-rows: repeat(auto-fill,minmax(150px, 1fr));
+    gap: 3px;
 
+  }
+  
   .feature {
       width: 200px;
+      float:left;
+      margin: 10px;
   }
   aside{
     flex:1;
