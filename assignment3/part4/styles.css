@@ -30,6 +30,7 @@ body {
   
   nav ul {
     display:flex;
+    justify-content: space-evenly;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -49,4 +50,10 @@ body {
 
   .feature {
       width: 200px;
+  }
+  aside{
+    flex:1;
+  }
+  article{
+    flex: 1;
   }
