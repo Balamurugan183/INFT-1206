@@ -138,6 +138,7 @@ class EvilCricle extends shape {
         const distance = Math.sqrt(dx * dx + dy * dy);
 
         if (distance < this.size + ball.size) {
+          ball.exists=false;
           // change the existance the ball
         }
       }
@@ -157,6 +158,7 @@ while (balls.length < 25) {
     random(0 + size, height - size),
     random(-7, 7),
     random(-7, 7),
+    true,
     randomRGB(),
     size
   );
@@ -164,9 +166,68 @@ while (balls.length < 25) {
   balls.push(ball);
 }
 
+
+/* let ballcounter = 0;
 function loop() {
   ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
   ctx.fillRect(0, 0, width, height);
+
+  ballcounter = 0;
+  for (const ball of balls) {
+    ball.draw();
+    ball.update();
+    ball.collisionDetect();
+    if (ball.exists) {
+      ballCounter++;
+  }
+
+  ctx.fillstyle="white";
+  ctx.font="14px Arial";
+  ctx.fillText('Balls on screen: ${ballCounter}', 10, 20);
+  
+  requestAnimationFrame(loop);
+  }
+}
+loop();
+*/
+
+function loop() {
+  ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
+  ctx.fillRect(0, 0, width, height);
+
+  
+  for (const ball of balls) {
+    ball.draw();
+    ball.update();
+    ball.collisionDetect();
+    
+  }
+
+  
+  requestAnimationFrame(loop);
+  }
+
+loop();
+
+let evilcircle = new evilcircle(
+  random(0,width),
+  random(0,height)
+);
+evilcircle.setcontrols();
+
+
+// TODO:  modify this evilloop function for the evil circle(Done)
+// TODO : make the evil circle exist(done)
+let evilExists = true;
+function evilloop() {
+  ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
+  ctx.fillRect(0, 0, width, height);
+
+  if (evilExists) {
+    evil.draw();
+    evil.update();
+    evil.collisionDetect();
+  }
 
   for (const ball of balls) {
     ball.draw();
@@ -177,4 +238,31 @@ function loop() {
   requestAnimationFrame(loop);
 }
 
+
+
+
+// TO add counter to count how many balls are there on the screen
+// The below code doesnot work professor to count how many balls on the screen.
+/* let ballcounter = 0;
+function loop() {
+  ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
+  ctx.fillRect(0, 0, width, height);
+
+  ballcounter = 0;
+  for (const ball of balls) {
+    ball.draw();
+    ball.update();
+    ball.collisionDetect();
+    if (ball.exists) {
+      ballCounter++;
+  }
+
+  ctx.fillstyle="white";
+  ctx.font="14px Arial";
+  ctx.fillText('Balls on screen: ${ballCounter}', 10, 20);
+  
+  requestAnimationFrame(loop);
+  }
+}
 loop();
+*/
