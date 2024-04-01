@@ -19,21 +19,19 @@ function randomRGB() {
 }
 
 class shape {
-  constructor(x,y,velX,velY) {
+  constructor(x,y,velX,velY,exists) {
   this.x=x;
   this.y=y;
   this.velX=velX;
   this.velY=velY;
+  this.exists=exists;
   
   
   }
 }
-class Ball {
-  constructor(x, y, velX, velY, color, size) {
-    this.x = x;
-    this.y = y;
-    this.velX = velX;
-    this.velY = velY;
+class Ball extends shape {
+  constructor(x, y, velX, velY,exists, color, size) {
+    super(x,y,velX,velY);
     this.color = color;
     this.size = size;
   }
