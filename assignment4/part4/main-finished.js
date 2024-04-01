@@ -44,7 +44,7 @@ class Ball extends shape {
 
   update() {
     if (this.x + this.size >= width) {
-      this.velX = -Math.abs(this.velX);
+      this.velX = -(Math.abs(this.velX));
     }
 
     if (this.x - this.size <= 0) {
@@ -52,7 +52,7 @@ class Ball extends shape {
     }
 
     if (this.y + this.size >= height) {
-      this.velY = -Math.abs(this.velY);
+      this.velY = -(Math.abs(this.velY));
     }
 
     if (this.y - this.size <= 0) {
@@ -65,7 +65,7 @@ class Ball extends shape {
 
   collisionDetect() {
     for (const ball of balls) {
-      if (!(this === ball)) {
+      if (!(this === ball)&& ball.exists) {
         const dx = this.x - ball.x;
         const dy = this.y - ball.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
@@ -111,6 +111,39 @@ class EvilCricle extends shape {
     ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
     ctx.stroke();
   }
+  checkBounds() {
+    if (this.x + this.size >= width) {
+      this.x -= this.size;
+    }
+
+    if (this.x - this.size <= 0) {
+      this.x += this.size;
+    }
+
+    if (this.y + this.size >= height) {
+      this.y -= this.size;
+    }
+
+    if (this.y - this.size <= 0) {
+      this.y += this.size;
+    }
+
+    
+  }
+  collisionDetect() {
+    for (const ball of balls) {
+      if (ball.exists) {
+        const dx = this.x - ball.x;
+        const dy = this.y - ball.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < this.size + ball.size) {
+          // change the existance the ball
+        }
+      }
+    }
+  }
+
 }
 
 const balls = [];
