@@ -20,15 +20,23 @@ function result() {
   const xItem = randomValueFromArray(insertX);
   const yItem = randomValueFromArray(insertY);
   const zItem = randomValueFromArray(insertZ);
+  
+  newStory=newStory
+        .replaceAll(":insertx:",xItem)
+        .replace(":insertY:",yItem)
+        .replace(":insertz:",zItem);
+        
   if(customName.value !== '') {
     const name = customName.value;
-
+    newStory=newstory.replace("Bob",name);
   }
 
   if(document.getElementById("uk").checked) {
-    const weight = Math.round(300);
-    const temperature =  Math.round(94);
-
+    const weight = '${Math.round(300/14)} stone';
+    const temperature =  '${Math.round((94-32)*(5/9))} centigrade';
+    newstory=newstory
+            .replace("300 pounds")
+            .replace("94 fahrenheit");
   }
 
   story.textContent = ;
